@@ -1,0 +1,40 @@
+<!--Dadas tres variables enteras (v1, v2 y v3) escribir condiciones que expresen lo siguiente:
+Todas las variables son cero.
+Todas las variables son positivas.
+Todas las variables tienen el mismo signo.
+Todos sus valores son distintos.
+Dos de sus valores coinciden.
+Como máximo dos de sus valores coinciden.
+El valor de v2 está comprendido entre los de v1 y v3.-->
+<html>
+    <body>
+        <h1>Comparación de variables</h1>
+        <script>
+
+            let v1 = 1;
+            let v2 = 2;
+            let v3 = 3;
+
+            //Array de condiciones
+            const condiciones = [
+                {descripcion: "Todas las variables son cero.", condicion: () => v1 == 0 && v2 == 0 && v3 == 0},
+                {descripcion: "Todas las variables son positivas.", condicion: () => v1 >= 0 && v2 >= 0 && v3 >= 0},
+                {descripcion: "Todas las variables tienen el mismo signo.", condicion: () => (v1 >= 0 && v2 >= 0 && v3 >= 0) || (v1 <= 0 && v2 <= 0 && v3 <= 0)},
+                {descripcion: "Todos sus valores son distintos.", condicion: () => v1 != v2 && v1 != v3 && v2 != v3},
+                {descripcion: "Dos sus valores coinciden.", condicion: () => (v1 == v2) || (v1 == v3) || (v2 == v3)},
+                {descripcion: "Como máximo dos de sus valores coninciden.", condicion: () =>  (v1 == v2 && v1 != v3) || (v1 == v3 && v1 != v2) || (v2 == v3 && v2 != v1)},
+                {descripcion: "El valor de v2 está comprendido entre los de v1 y v3.", condicion: () => (v1 < v2 && v2 < v3) || (v3 > v2 && v2 > v1)}
+            ];
+
+            //Evaluar y mostrar los resultados
+            condiciones.forEach(({descripcion, condicion}) => {
+                if(condicion()) {
+                    console.log(descripcion);
+                }
+            });
+            
+
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,67 @@
+<!--Leer 3 números (día, mes y año) y decir si corresponde a una fecha correcta.
+ Un año es bisiesto si es divisible por 4 excepto si acaba en 00 en cuyo caso es bisiesto sólo si es divisible por 400-->
+ <html>
+    <body>
+        <h1>Verificar si un fecha es correcta</h1>
+
+        <label for="dia">Introduce el día</label>
+        <input type="number" id="dia" min="1" max="31">
+        <br>
+        <br>
+
+        <label for="mes">Introduce el mes</label>
+        <input type="number" id="mes" min="1" max="12">
+        <br>
+        <br>
+
+        <label for="anio">Introduce el año</label>
+        <input type="number" id="anio" min="1">
+        <br>
+        <br>
+
+        <button onclick="verificarFecha()">Verificar</button>
+
+        <div id="resultado"></div>
+
+        <script>
+            function esBisiesto() {
+                return(anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0);
+            }
+
+            function verificarFecha() {
+                const dia = parseInt(document.getElementById('dia').value);
+                const mes = parseInt(document.getElementById('mes').value);
+                const anio = parseInt(document.getElementById('anio').value);
+
+                if(isNaN(dia) || isNaN(mes) || isNaN(anio)) {
+                    alert("Por favor, introduce números válidos para el día, el mes y el año");
+                    return;
+                }
+
+                let maxDias;
+                switch(mes) {
+                    case 2:
+                        maxDias = esBisiesto(anio) ? 29 : 28;
+                        break;
+                    case 4:
+                    case 6:
+                    case 9:
+                    case 11:
+                        maxDias = 30;
+                        break;
+                    default:
+                        maxDias = 31;
+                        break;
+                }
+
+                if(dia >= 1 && dia <= maxDias) {
+                    document.getElementById('resultado').innerHTML =
+                    `La fecha ${dia}/${mes}/${anio} es correcta`;
+                } else {
+                    document.getElementById('resultado').innerHTML = 
+                    `La fecha ${dia}/${mes}/${anio} no es correcta`;
+                }
+            }
+        </script>
+    </body>
+ </html>

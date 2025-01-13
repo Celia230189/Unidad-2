@@ -1,0 +1,53 @@
+<!--Leer tres números y escribirlos en orden decreciente-->
+<html>
+    <body>
+        <h1>Leer y ordenar números en orden decreciente</h1>
+
+        <label for="numero1">Introduce el primer número entero</label>
+        <input type="number" id="numero1">
+        <br>
+        <br>
+
+        <label for="numero2">Introduce el segundo número entero</label>
+        <input type="number" id="numero2">
+        <br>
+        <br>
+
+        <label for="numero3">Introduce el tercer número entero</label>
+        <input type="number" id="numero3">
+        <br>
+        <br>
+
+        <button onclick="ordenar()">Ordenar</button>
+        <br>
+        <br>
+
+        <div id="resultado"></div>
+
+        <script>
+            function ordenar() {
+                const numero1 = parseInt(document.getElementById('numero1').value);
+                const numero2 = parseInt(document.getElementById('numero2').value);
+                const numero3 = parseInt(document.getElementById('numero3').value);
+
+                if(isNaN(numero1) || isNaN(numero2) || isNaN(numero3)) {
+                    alert("Por favor, introduce tres números válidos")
+                    return;
+                }
+
+                //Crear un array con los números y ordenarlos en orden decreciente
+                const numeros = [numero1, numero2, numero3];
+                numeros.sort((a, b) => b - a);
+
+                document.getElementById('resultado').innerHTML = 
+                `Los números en orden decreciente son: ${numeros.join(', ')}`;
+
+
+
+            }
+        </script>
+
+
+
+    </body>
+</html>

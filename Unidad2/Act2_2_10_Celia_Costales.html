@@ -1,0 +1,17 @@
+<!--Realiza un ejercicio en el que se le pida al usuario un valor numérico
+ y mediante un bucle while haga una cuenta atrás mostrándola mediante una ventana.-->
+ <html>
+    <body>
+        <script>
+            let numero = prompt("Introduce un número para comenzar la cuenta atrás");
+            numero = parseInt(numero);
+
+            while(numero >= 0) {
+                alert("Cuenta atrás: "+numero);
+                numero--;
+            }
+
+            alert("La cuenta atrás ha terminado");
+        </script>
+    </body>
+ </html>

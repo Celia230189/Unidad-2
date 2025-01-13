@@ -1,0 +1,50 @@
+<!--Calcula cuantos números pares hay entre dos introducidos-->
+<html>
+   <body>
+    <h1>Contar números pares entre dos números</h1>
+
+    <!--Campo de entrada para el primer número-->
+    <label for="numero1">Introduce el primer número:</label>
+    <input type="number" id="numero1">
+    <br>
+    <br>
+
+    <!--Campo de entrada para el segundo número-->
+    <label for="numero2">Introduce el segundo número:</label>
+    <input type="number" id="numero2">
+    <br>
+    <br>
+
+    <!--Botón para realizar el cálculo-->
+    <button onclick="contarPares()">Contar pares</button>
+
+    <!--Div para mostrar el resultado-->
+    <div id="resultado"></div>
+
+    <script>
+        function contarPares() {
+            const numero1 = parseInt(document.getElementById('numero1').value);
+            const numero2 = parseInt(document.getElementById('numero2').value);
+
+            if(isNaN(numero1) || isNaN(numero2)) {
+                alert("Por favor, introduce números válidos");
+                return;
+            }
+
+            const menor = Math.min(numero1, numero2);
+            const mayor = Math.max(numero1, numero2);
+
+            let contadorPares = 0;
+
+            for(let i = menor; i <= mayor; i++) {
+                if(i % 2 == 0) {
+                    contadorPares++;
+                }
+            }
+
+            document.getElementById('resultado').innerHTML = 
+            `Hay ${contadorPares} números pares entre ${numero1} y ${numero2}.`;
+        }
+    </script>
+   </body>
+</html>

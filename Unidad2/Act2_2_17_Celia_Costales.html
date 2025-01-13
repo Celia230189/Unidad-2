@@ -1,0 +1,35 @@
+<!--Realiza un ejercicio que haga lo siguiente:
+1. Se teclearán dos números enteros por pantalla hasta que los dos sean menores que 50.
+2. El más pequeño se irá incrementando de 5 en 5 y el más grande se decrementará de 2 en 2,
+ se irán imprimiendo a la vez que se van generando. El programa terminará cuando los valores se crucen-->
+ <html>
+    <body>
+        <script>
+            function main() {
+                let numero1, numero2;
+
+                //pedir números hasta que ambos sean menores que 50
+                do {
+                    numero1 = parseInt(prompt("Introduce el primer número entero"));
+                    numero2 = parseInt(prompt("Introduce el segundo número entero"));
+                } while (numero1 > 50 || numero2 > 50);
+
+                //determinar cuál es menor y cuál es mayor
+                let menor = Math.min(numero1, numero2);
+                let mayor = Math.max(numero1, numero2);
+
+                //incrementar y decrementar los números hasta que se crucen
+                while(menor <= mayor) {
+                    alert("Menor: "+menor+" - Mayor: "+mayor);
+                    menor += 5;
+                    mayor -= 2;
+                }
+
+                alert("Los valores se han cruzado")
+            }
+
+            main();
+            
+        </script>
+    </body>
+ </html>

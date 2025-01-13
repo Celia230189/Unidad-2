@@ -1,0 +1,25 @@
+<!--Realiza una aplicación que pida al usuario el precio de un producto sin el IVA y el IVA a aplicar, calculando el precio total a pagar.-->
+<html>
+    <body>
+        <script>
+
+            function calcularIva(precio, iva) {
+                return precio + (precio * iva / 100);
+            }
+
+            function main() {
+                let precio = prompt("Introduce el precio del producto sin IVA");
+                precio = parseFloat(precio);
+                let iva = prompt("Introduce el IVA");
+                iva = parseInt(iva);
+                let precioTotal = calcularIva(precio, iva);
+                let mensaje = "El precio total con el "+iva+" % de IVA es: "+precioTotal+" €";
+
+                alert(mensaje);
+            }
+
+            main();
+
+        </script>
+    </body>
+</html>

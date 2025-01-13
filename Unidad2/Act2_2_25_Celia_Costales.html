@@ -1,0 +1,41 @@
+<!--Escribir un algoritmo que permita jugar a doble o nada: El jugador apuesta una cantidad y tira una moneda (aleatoriamente).
+ Si sale cara obtiene el doble de la cantidad apostada. Si sale cruz lo pierde todo.-->
+ <html>
+    <body>
+        <h1>Doble o nada</h1>
+
+        <label for="apuesta">Introduce tu apuesta</label>
+        <input type="number" id="apuesta" min="1">
+        
+        <button onclick="jugar()">Jugar</button>
+        <br>
+        <br>
+
+        <div id="resultado"></div>
+
+        <script>
+            function jugar() {
+                const apuesta = parseFloat(document.getElementById('apuesta').value);
+
+                if(isNaN(apuesta) || apuesta <= 0) {
+                    alert("Por favor, introduce una cantidad válida.");
+                    return;
+                }
+
+                //Generar un lanzamiento de moneda aleatorio (0 para cara, 1 para cruz)
+                const moneda = Math.floor(Math.random() * 2); //Math.floor para redondear hacia abajo
+
+                if(moneda == 0) {
+                    const ganancia = apuesta * 2;
+                    document.getElementById('resultado').innerHTML = 
+                    `¡Salió cara! Has ganado el doble de tu apuesta. Ganancia ${ganancia}.`;
+                } else {
+                    document.getElementById('resultado').innerHTML = 
+                    `¡Salió cruz! Has perdido tu apuesta :(`
+                }
+
+
+            }
+        </script>
+    </body>
+ </html>

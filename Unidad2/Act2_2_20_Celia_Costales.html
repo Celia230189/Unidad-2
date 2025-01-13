@@ -1,0 +1,69 @@
+<!--Crear un programa que muestre un menú como este:
+Salir
+Sumatorio
+Factorial
+Tras mostrar el menú, el programa debe leer un número del 1 al tres si se elige 1, el programa acaba. 
+Si se elige 2 se calcula el sumatorio del número,
+si se elige 3 se calcula el factorial (en ambos casos el programa pedirá escribir el número sobre el que se calcula el sumatorio o el factorial).
+Tras calcular el sumatorio o el factorial e indicar el resultado, el programa volverá a mostrar el menú y así sucesivamente.-->
+<html>
+    <body>
+        <script>
+            //funcion para mostrar el menú y devolver la opción elegida
+            function mostrarMenu() {
+                return parseInt(prompt(
+                    "Elige una opción:\n"+
+                    "1. Salir\n"+
+                    "2. Sumatorio\n"+
+                    "3. Factorial"
+                ));
+            }
+
+            //función para calcular el sumatorio
+            function calcularSumatorio(numero) {
+                let sumatorio = 0;
+                for(let i = 1; i <= numero; i++) {
+                    sumatorio += i; //sumar cada número desde 1 hasta el número dado
+                }
+                return sumatorio;
+            }
+
+            //función para calcular el factorial
+            function calcularFactorial(numero) {
+                let factorial = 1;
+                for(let i = 1; i<= numero; i++) {
+                    factorial *= i; //multiplica cada número desde 1 hasta el número dado
+                }
+                return factorial;
+            } 
+
+            //función principal
+            function main() {
+                let opcion; //variable para almacenar la opción del menú
+                do {
+                    opcion = mostrarMenu();
+                    switch(opcion) {
+                        case 1:
+                            alert("Saliendo del programa...");
+                            break;
+                        case 2:
+                            let numSumatorio = parseInt(prompt("Introduce un número para calcular el sumatorio"));
+                            let sumatorio = calcularSumatorio(numSumatorio);
+                            alert("El sumatorio de "+numSumatorio+" es "+sumatorio);
+                            break;
+                        case 3:
+                            let numFactorial = parseInt(prompt("Introduce un número para calcular el factorial"));
+                            let factorial = calcularFactorial(numFactorial);
+                            alert("El factorial de "+numFactorial+" es "+factorial);
+                            break;
+                        default:
+                            alert("Opción no válida, por favor elige 1, 2, o 3");
+                            break;
+                    }
+                } while(opcion !== 1)
+            }
+
+            main();
+        </script>
+    </body>
+</html>

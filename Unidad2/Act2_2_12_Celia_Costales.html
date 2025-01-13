@@ -1,0 +1,26 @@
+<!--Crear un programa que lea un número entero y a partir de él cree un cuadrado de asteriscos con ese tamaño.-->
+<html>
+    <body>
+        <script>
+            let tamanio = prompt("Introduce el tamaño del cuadrado");
+            tamanio = parseInt(tamanio);
+
+            /*creamos el cuadrado con dos bucles for anidados,
+              el bucle externo i se encarga de las filas, 
+              y el bucle interno j se encarga de las columnas*/
+
+              let cuadrado = "";
+              for(let i = 0; i < tamanio; i++) {
+                for(let j = 0; j < tamanio; j++) {
+                    cuadrado += "*";
+                }
+                //después de completar una fila añadimos una nueva línea
+                cuadrado +="\n";
+              }
+
+              //mostramos el cuadrado en una alerta
+              alert(cuadrado);
+
+        </script>
+    </body>
+</html>

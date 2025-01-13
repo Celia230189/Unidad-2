@@ -1,0 +1,38 @@
+<!--Identificar cuantos días tiene el mes.-->
+<html>
+    <body>
+        <h1>Identificar cuántos días tiene un mes</h1>
+
+        <label for="mes">Introduce el mes (1-12):</label>
+        <input type="number" id="mes" min="1" max="12">
+        <br>
+        <br>
+
+        <!--Pedimos el año por si es bisiesto-->
+        <label for="anio">Introduce el año:</label>
+        <input type="number" id="anio" min="1">
+        <br>
+        <br>
+
+        <button onclick="calcularDias()">Calcular días</button>
+
+        <div id="resultado"></div>
+
+        <script>
+            function calcularDias() {
+                const mes = parseInt(document.getElementById('mes').value);
+                const anio = parseInt(document.getElementById('anio').value);
+
+                if(isNaN(mes) || isNaN(anio) || mes < 1 || mes > 12 || anio < 1) {
+                    alert("Por favor, introduce un mes válido (1-12) y un año válido");
+                    return;
+                }
+
+                const dias = new Date(anio, mes, 0).getDate();
+
+                document.getElementById('resultado').innerHTML =
+                `El mes ${mes} del año ${anio} tiene ${dias} días.`;
+            }
+        </script>
+    </body>
+</html>

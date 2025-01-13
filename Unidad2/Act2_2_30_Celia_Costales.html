@@ -1,0 +1,93 @@
+<!--Realiza un programa para que dos personas puedan jugar al Master Mind.
+Primeramente, el ordenador pedirá una combinación secreta que consistirá en 4 números y que tecleará una de las personas.
+Después, la otra persona deberá adivinar dicha combinación secreta para lo que dispondrá como máximo de 8 intentos.
+Cada intento consistirá en escribir 4 números, tras lo cual el ordenador escribirá el número de muertos y de heridos.
+1. Un número está muerto si coincide en valor y en posición con la combinación secreta.
+2. Un número está herido si coincide en valor, pero no en posición con la combinación secreta.
+Por ejemplo:
+Si la combinación secreta es (5 3 1 2), en el intento (5 1 4 4) hay 1 muerto (el 5) y un herido (el 1).
+Según esta definición en el intento (5 1 1 2) habría 3 muertos (el 5, el segundo 1 y el 2) y 1 herido (el primer 1).
+El programa terminará por una de las dos siguientes situaciones:
+a) el jugador ha acertado la combinación escrita por el otro o b) se ha llegado a 8 intentos sin acertarla.-->
+<html>
+    <body>
+        <h1>Master Mind</h1>
+        <script>
+            function masterMind() {
+                //Obtener la combinación secreta y convertirla en un array de números
+                const combinacionSecreta = prompt("Introduce la combinación secreta (4 números separados por espacios:)").split(' ').map(Number);
+
+                //Validar la combinación
+                if(combinacionSecreta.length != 4 || combinacionSecreta.some(isNaN)) {
+                    alert("La combinación secreta debe ser 4 números");
+                    return;
+                }
+
+                //Nº máximos de intentos
+                let intentos = 8;
+
+                //Función para evaluar el intento y contar muertos y heridos
+                function evaluarIntento(intento) {
+                    //Inicializar contadores para muertos y heridos
+                    let muertos = 0;
+                    let heridos = 0;
+                    const usados = Array(4).fill(false); //Array para marcar qué números de la combinación secreta ya fueron contados
+
+                    //Primer bucle para contar los muertos
+                    intento.forEach((num, i) => {
+                        if(num == combinacionSecreta[i]) {
+                            muertos++;
+                            usados[i] = true; //Marcar el número como usado
+                        }
+                    });
+
+                    //Segundo bucle para contar los heridos
+                    intento.forEach((num, i) => {
+                        if(num != combinacionSecreta[i]) { //Considerar solo los números que no son muertos
+                           const indice = combinacionSecreta.findIndex((val, j) => val == num && !usados[j]);
+                           if(indice != -1) {
+                            heridos++;
+                            usados[indice] = true; //Marcar el número como usado
+                           }
+
+                        }
+                    });
+
+                    return {muertos, heridos}; //Devolver el número de muertos y heridos
+
+                }
+
+                //Bucle del juego que se repite hasta que se agoten los intentos
+                while(intentos > 0) {
+                    //Obtener el intento del jugador y convertirlo en un array
+                    const intento = prompt(`Te quedan ${intentos} intentos. Introduce tu intento (4 números separados por espacios):`).split(' ').map(Number);
+
+                    //Validar el intento
+                    if(intento.length != 4 || intento.some(isNaN)) {
+                        alert("El intento debe ser 4 números");
+                        continue; //Continuar con el siguiente ciclo del bucle
+                    }
+                    
+                    //Evaluar el intento y contar los muertos y heridos
+                    const  {muertos, heridos} = evaluarIntento(intento);
+
+                    //Verificar si el jugador ha adivinado la combinación secreta
+                    if(muertos == 4) {
+                        alert(`¡Has ganado! La combinación secreta era ${combinacionSecreta.join(' ')}`);
+                        return; //Terminar el juego
+                    } else {
+                        alert(`Intento: ${muertos} muertos, ${heridos} heridos.`); 
+                    }
+
+                    intentos --; //Decremetar el número de intentos
+                }
+
+                //Si se agotan los intento, informar al jugador que ha perdido
+                alert(`Lo siento, has perdido. La combinación secreta era ${combinacionSecreta.join(' ')}`);
+
+            }
+
+            masterMind();
+        </script>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<!--Haz un programa para calcular la longitud de una circunferencia y el área del círculo correspondiente.-->
+<html>
+    <body>
+        <script>
+            //pedir el radio del circulo
+            let radio = prompt("Introduce el radio del círculo: ");
+            //convertir a un número con decimales
+            radio = parseFloat(radio);
+            //calcular la longitud de la circunferencia
+            //utilizamos Math.PI que representa el valor de PI 
+            let longitud = 2 * Math.PI * radio;
+            //calcular el área del circulo
+            //utilizamos Math.pow(base, exponente) para elevar un número a la potencia de otro
+            let area = Math.PI * Math.pow(radio, 2);
+
+            //mostrar resultados en consola
+            //utilizamos la funcion toFixed para mostrar solo dos decimales
+            console.log("La longitud de la circunferencia es: "+longitud.toFixed(2)); 
+            console.log("El área del círculo es: "+area.toFixed(2));
+
+            /*mostrar resultados en alertas
+            alert("La longitud de la circunferencia es: "+longitud.toFixed(2));
+            alert("El área del círculo es: "+area.toFixed(2));*/
+
+            //mostrar resultados en una unica pantalla
+            document.write("<p>La longitud de la circunferencia es: "+longitud.toFixed(2)+"</p>");
+            document.write("<p>El área del círculo es: "+area.toFixed(2)+"</p>");
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,34 @@
+<!--Hacer un programa utilizando la sentencia switch para que dada una nota numérica nos dé la nota en letra.
+ (Por ejemplo, nota= 5  Aprobado).-->
+ <html>
+    <body>
+        <script>
+            let nota = prompt("Introduce la nota:");
+            nota = parseInt(nota);
+
+            switch(nota) {
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                    alert("Suspenso");
+                    break;
+                case 5:
+                case 6:
+                    alert("Aprobado");
+                    break;
+                case 7:
+                case 8:
+                    alert("Notable");
+                    break;
+                case 9:
+                case 10:
+                    alert("Sobresaliente");
+                    break;
+                default:
+                    alert("Introduce una nota del 0 al 10");
+            }
+        </script>
+    </body>
+ </html>

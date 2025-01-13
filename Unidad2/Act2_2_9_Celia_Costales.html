@@ -1,0 +1,26 @@
+<!--Teniendo la variable primer_saludo = “hola”
+Y la variable segundo_saludo = primer_saludo
+Si ahora, le asignásemos un nuevo valor a primer_saludo =”hello”
+¿Qué valor tendría segundo_saludo?-->
+<html>
+    <body>
+        <script>
+            let primer_saludo = "hola";
+            let segundo_saludo = primer_saludo;
+            //en este punto, tanto primer_saludo como segundo_saludo tienen el valor "hola"
+
+            primer_saludo = "hello";
+            //después de reasignar, primer_saludo tiene el valor "hello", pero segundo_saludo sigue teniendo el valor "hola".
+
+            document.write(primer_saludo);//imprime hello
+            document.write("<br>");
+            document.write(segundo_saludo);//imprime hola
+            
+        </script>
+    </body>
+</html>
+
+<!--En este caso, segundo_saludo mantendría el valor original que tenía primer_saludo antes de ser reasignado.
+    Esto sucede porque cuando asignamos primer_saludo a segundo_saludo, lo que estamos copiando es el valor de primer_saludo en ese momento,
+    no una referencia a primer_saludo.
+    Por lo tanto, cualquier cambio posterior en primer_saludo no afectará a segundo_saludo.-->

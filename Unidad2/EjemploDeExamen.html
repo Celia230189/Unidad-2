@@ -1,0 +1,160 @@
+<html>
+
+    <head>
+        <title>Calculadora de IMC</title>
+    </head>
+
+    <body>
+
+        <!--Formulario para añadir pesonas-->
+            <div>
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre">
+            
+                <label for="peso">Peso</label>
+                <input type="number" id="peso">
+          
+                <label for="altura">Altura</label>
+                <input type="number" id="altura">
+
+                <button onclick="aniadirPersona()">Añadir</button>
+                <button onclick="modificarPersona()">Modificar</button>
+
+        <!--Botón para calcular el IMC-->
+                <button onclick="calcularIMC()">Calcular</button>
+                <button onclick="mostrarTodas()">Mostrar Todas las Personas</button>
+                <div id="resultados"></div>
+                <div id="resultadoPersonas"></div>
+            </div>
+
+        <!--Sección para mostrar las personas fuera del peso normal-->
+        <div>
+            <div id="personasImcResultados"></div>
+        </div>
+
+
+        <script>
+
+            //Clase Persona para almacenar nombre, peso y altura
+            class Persona {
+                constructor(nombre, peso, altura) {
+                    this.nombre = nombre;
+                    this.peso = peso;
+                    this.altura = altura;
+                }
+            }
+
+            //Clase IMC para almacenar nombre e IMC de personas fuera del peso normal
+            class IMC {
+                constructor(nombre, imc) {
+                    this.nombre = nombre;
+                    this.imc = imc;
+                }
+            }
+
+            const personas = [];
+            const imcResultados = [];
+
+            //Función para añadir una nueva persona
+            function aniadirPersona() {
+                const nombre = document.getElementById('nombre').value;
+                const peso = parseFloat(document.getElementById('peso').value);
+                const altura = parseFloat(document.getElementById('altura').value);
+
+                if(!nombre || isNaN(peso) || isNaN(altura)) {
+                    alert("Por favor, introduce valores válidos");
+                    return;
+                }
+
+                const persona = new Persona(nombre, peso, altura);
+                personas.push(persona);
+                alert("Persona añadida correctamente");
+            }
+
+            //Función para modificar los datos de una persona existente
+            function modificarPersona() {
+                const nombre = document.getElementById('nombre').value;
+                const peso = parseFloat(document.getElementById('peso').value);
+                const altura = parseFloat(document.getElementById('altura').value);
+
+                let persona = personas.find(p => p.nombre == nombre);
+                if(!persona) {
+                    alert("Persona no encontrada");
+                    return;
+                }
+
+                if(!isNaN(peso)) {
+                    persona.peso = peso;
+                }
+                
+                if(!isNaN(altura)) {
+                    persona.altura = altura;
+                }
+
+                alert("Datos modificados correctamete");
+            }
+
+            //Función para calcular el IMC de cada persona y mostrar los resultados
+            function calcularIMC() {
+                imcResultados.length = 0; //Limpiar resultados previos
+                const resultadosDiv = document.getElementById('resultados');
+                resultadosDiv.innerHTML = ''; //Limpiar resultados previos en el DOM
+
+                personas.forEach(persona => {
+                    const imc = persona.peso / (persona.altura ** 2);
+                    let estado;
+
+                    if(imc < 18.49) {
+                        estado = "La persona es demasiado delgada";
+                    } else if(imc < 25) {
+                        estado = "La persona tiene un peso normal";
+                    } else {
+                        estado = "La persona es demasiado obesa";
+                    }
+
+                    if(estado != 'peso normal') {
+                        imcResultados.push(new IMC(persona.nombre, imc));
+                    }
+
+                    mostrarResultados(persona.nombre, imc, estado);
+                });
+            }
+
+            //Función para mostrar los resultados del IMC en pantalla
+            function mostrarResultados(nombre, imc, estado) {
+                const resultadosDiv = document.getElementById('resultados');
+                const resultado = document.createElement('p');
+                resultado.textContent = `${nombre}: IMC = ${imc.toFixed(2)}, Estado = ${estado}`;
+                resultadosDiv.appendChild(resultado) ;
+            }
+
+            //Función para mostrar las personas fuera del peso normal
+            function mostrarIMCresultados() {
+                const personasImcResultadosDiv = document.getElementById('personasImcResultados');
+                imcResultados.forEach(imc => {
+                    const resultado = document.createElement('p');
+                    resultado.textContent = `${imc.nombre}: IMC = ${imc.imc.toFixed(2)}`;
+                    personasImcResultadosDiv.appendChild(resultado);
+                })
+            }
+
+            //Función para mostrar todad las personas
+            function mostrarTodas() {
+                const resultadoPersonasDiv = document.getElementById('resultadoPersonas');//obtiene la referencia al div donde se mostrarán los resultados
+                resultadoPersonasDiv.hinnerHTML = ''; //Limpia cualquier contenido previo del div resultadoPersonasDiv
+
+                personas.forEach(persona => { //Itera sobre cada objeto persona en el array personas
+                    const resultado = document.createElement('p'); // Crea un nuevo elmento de párrafo
+                    resultado.textContent = `
+                    Nombre: ${persona.nombre}, Peso: ${persona.peso}, Altura: ${persona.altura}`; // Define el texto del párrafo con los datos de la persona
+                    resultadoPersonasDiv.appendChild(resultado); //Añade el nuevo párrafo al div resultadoPersonasDiv
+                });
+            }
+
+           
+
+        </script>
+                
+    </body>
+
+</html>

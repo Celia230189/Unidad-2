@@ -1,0 +1,36 @@
+<!--Calcula la media de una serie de números introducidos por teclado.-->
+<html>
+    <body>
+        <h1>Calcular la media de números introducidos</h1>
+
+        <!--Campo de entrada para la serie de números-->
+        <label for="numeros">Introduce los números separados por comas:</label>
+        <input type="text" id="numeros">
+
+        <!--Botón para calcular la media-->
+        <button onclick="calcularMedia()">Calcular media</button>
+
+        <!--Div para mostrar el resultado-->
+        <div id="resultado"></div>
+
+        <script>
+            function calcularMedia() {
+                //Obtener la cadena de números desde el input
+                const cadenaNumeros = document.getElementById('numeros').value;
+
+                //Convertir la cadena de números en un array
+                const numerosArray = cadenaNumeros.split(',').map(Number);
+
+                //Calcular la suma de los números
+                const suma = numerosArray.reduce((a, b) => a + b, 0);
+
+                //Calcular la media
+                const media = suma / numerosArray.length;
+
+                //Mostrar el resultado
+                document.getElementById('resultado').innerHTML = 
+                `La media es: ${media.toFixed(2)}`;
+            }
+        </script>
+    </body>
+</html>

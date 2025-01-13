@@ -1,0 +1,29 @@
+<!--Haz un programa que nos pregunte nuestro nombre, nuestra edad.
+ El programa nos tiene que dar como resultado los días que hemos vivido hasta el momento (suponiendo años de 365 días).-->
+ <html>
+    <body>
+        <script>
+
+            //función para calcular los días vividos
+            function calcularDiasVividos(edad) {
+                return edad * 365;
+            }
+
+            //función principal
+            function main() {
+               //declaración de variables
+               let nombre = prompt("¿Cómo te llamas?");
+               let edad = prompt("¿Cuántos años tienes?");
+               let diasVividos = calcularDiasVividos(edad);
+               let mensaje = "Hola "+nombre+", has vivido aproximadamente "+diasVividos+" días";
+
+               //mostrar resultado
+               alert(mensaje);
+            }
+
+            //llamar a la función principal
+            main();
+
+        </script>
+    </body>
+ </html>
