@@ -1,0 +1,50 @@
+<!--Escribir un programa donde el usuario elija entre lo siguiente
+Pulse 1 si desea cenar Costilla
+Pulse 2 si desea cenar Pescado
+Y luego se le pregunte también si desea o no postre
+Usar las funciones: prompt y confirm para pedir los datos
+Si eligió cenar Costilla->pago 23 €
+Si eligió cenar Pescado->pago 15 €
+Si tomo postre->el postre valió 3 €
+Calcular el valor total de la cena dependiendo de las opciones que elija por teclado el usuario,
+incluyendo una propina del 6%.-->
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Cena</title>
+    </head>
+    <body>
+    <h1>Elija su cena</h1>
+    <button onclick="elegirCena()">Elegir cena</button>
+    <div id="resultado"></div>
+
+    <script>
+        function elegirCena() {
+            const opcionCena = prompt("Pulse 1 si deses cenar Costilla\nPulse 2 si desea cenar Pescado");
+            const opcion = parseInt(opcionCena);
+            
+            if(isNaN(opcion) || (opcion !== 1 && opcion !== 2)) {
+                alert("Por favor, introcduce 1 para Costilla y 2 para Pescado");
+                return;
+            }
+
+            let cena = opcion === 1 ? "Costilla" : "Pescado";
+            let precioCena = opcion === 1 ? 23 : 15;
+            let deseaPostre = confirm("¿Desea postre?");
+
+            let precioPostre = deseaPostre ? 3 : 0;
+            let total = precioCena + precioPostre;
+            let propina = total * 0.06;
+            let totalConPropina = total + propina;
+
+            let mensaje = `Ha elegido cenar ${cena}`;
+            mensaje += deseaPostre ? ", y ha elegido tener postre. " : ", y ha elegido no tener postre";
+            mensaje += `<br>El total a pagar es: ${total}€ `;
+            mensaje += `<br>Incluyendo una propina del 6% : ${totalConPropina}€`;
+
+            document.getElementById('resultado').innerHTML = mensaje;
+        }
+    </script>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!--Hacer un programa que visualice todos los múltiplos de 11 menores de 300. A continuación que nos de la suma de todos ellos.-->
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Múltiplos de 11</title>
+    </head>
+    <body>
+        <h1>Múltiplos de 11</h1>
+        <div id="resultado"></div>
+
+        <script>
+            let suma = 0;
+            let multiplosDe11= [];
+
+            for(let i =0; i < 300; i++) {
+                if(i % 11 === 0) {
+                    multiplosDe11.push(i);
+                    suma += i;
+                }
+            }
+
+            document.getElementById('resultado').innerHTML = multiplosDe11.join('-');
+        </script>
+    </body>
+</html>

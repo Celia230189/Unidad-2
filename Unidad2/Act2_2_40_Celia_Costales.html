@@ -1,0 +1,39 @@
+<!--Hacer un programa que escriba los números del 1 al 25 de 3 en 3 con un bucle do...while y escribiendo 4 números en cada línea.-->
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Do While</title>
+    </head>
+    <body>
+        <h1>Números de 1 al 25</h1>
+        <div id="resultado"></div>
+        <script>
+            function escribirNumeros() {
+                let resultado = "";
+                let contador = 0;
+                let i = 1;
+
+                do {
+
+                    resultado += i + " ";
+                    contador++;
+                    i += 3;
+
+                    if(contador === 4) {
+                        resultado += "<br>";
+                        contador = 0;
+                    }
+
+                } while(i <= 25)
+
+
+                document.getElementById('resultado').innerHTML = resultado;
+
+            }
+            
+
+            escribirNumeros();
+        </script>
+    </body>
+</html>

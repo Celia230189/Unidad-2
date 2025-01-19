@@ -1,0 +1,36 @@
+<!--Se desea calcular independientemente la suma de los números pares e impares comprendidos entre 1 y 200, en el mismo bucle.-->
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Suma pares e impares</title>
+    </head>
+    <body>
+        <h1>Suma pares e impares</h1>
+        <div id="resultado"></div>
+
+        <script>
+            function sumaParesEimpares() {
+                let sumaPares = 0;
+                let sumaImpares = 0;
+            
+                for(let i = 1; i <= 200; i++) {
+                    if(i % 2 === 0) {
+                        sumaPares += i;
+                    } else {
+                        sumaImpares += i;
+                    }
+
+                }
+
+                document.getElementById('resultado').innerHTML = `
+            <p>La suma de los números pares comprendidos entres 1 y 200 es : ${sumaPares}</p>
+            <p>La suma de los números impares comprendidos entre 1 200 es: ${sumaImpares}</p>
+            `;
+            }
+
+            sumaParesEimpares();
+         
+        </script>
+    </body>
+</html>

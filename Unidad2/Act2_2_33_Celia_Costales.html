@@ -1,0 +1,42 @@
+<!--Hacer un programa que pida por teclado un número cualquiera, y si el número es menor que 0, de un mensaje de alerta de numero
+ invalido. Si no, que escriba por pantalla los siguientes valores o soluciones, utilizando variables auxiliares
+(solucion1, solucion2, ...) para cada apartado:
+1. La respuesta a número*2+1/3 –7 es: solucion1
+2. La respuesta a número+2 es: solucion2
+3. La respuesta a número * 2.5 es: solucion3
+4. “Fin de operación con el número: numero”-->
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Variables auxiliares</title>
+    </head>
+    <body>
+        <h1>Variables auxiliares</h1>
+        <label for="num">Introduce un número:</label>
+        <input type="number" id="num" name="num" required>
+        <button onclick="calcular()">Calcular</button>
+        <div id="resultado"></div>
+
+        <script>
+            function calcular() {
+                const num = parseInt(document.getElementById('num').value);
+                if(isNaN(num) || num <= 0) {
+                    alert("Error: Número inválido, por favor introduce un número mayor que 0");
+                    return;
+                }
+
+                const solucion1 = num * 2 + 1/3 - 7;
+                const solucion2 = num + 2;
+                const solucion3 = num *2.5;
+
+                const resultadoDiv = document.getElementById('resultado').innerHTML = `
+                <p>La respuesta a ${num} *2+1/3 –7 es: ${solucion1}</p>
+                <p>La respuesta a  ${num} +2 es: ${solucion2}</p>
+                <p>La respuesta a  ${num}  * 2.5 es: ${solucion3}</p>
+                `;
+
+            }
+        </script>
+    </body>
+</html>

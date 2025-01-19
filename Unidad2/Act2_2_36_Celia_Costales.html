@@ -1,0 +1,46 @@
+<!--Realizar un ejercicio que permita realizar la división de dos números mediante restas sucesivas,
+ mostrando el cociente y el resto.-->
+ <!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>División</title>
+    </head>
+    <body>
+        <h1>División por restas sucesivas</h1>
+        <label for="num1">Introduce el primer número</label>
+        <input type="number" id="num1" name="num1" required>
+        <br><br>
+        <label for="num2">Introduce el segundo número</label>
+        <input type="number" id="num2" name="num2" required>
+        <br><br>
+        <button onclick="dividir()">Dividir</button>
+        <br><br>
+        <div id="resultado"></div>
+
+        <script>
+            function dividir() {
+                const num1 = parseInt(document.getElementById('num1').value);
+                const num2 = parseInt(document.getElementById('num2').value);
+                if(isNaN(num1) || isNaN(num2) || num1 <= 0 || num2 <= 0) {
+                    alert("Por favor, introduce un número válido mayor de 0");
+                    return;
+                }
+
+                let cociente = 0;
+                let resto = num1;
+
+                while(resto >= num2) {
+                    resto -= num2;
+                    cociente++;
+                }
+
+                document.getElementById('resultado').innerHTML = `
+                <p>El cociente de ${num1} / ${num2} mediantes restas sucesivas es ${cociente}</p>
+                <p>El resto de ${num1} / ${num2} es ${resto}</p>
+                `;
+
+            }
+        </script>
+    </body>
+</html>

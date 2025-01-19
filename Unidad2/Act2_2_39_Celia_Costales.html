@@ -1,0 +1,39 @@
+<!--Hacer un programa que escriba “Feliz Feliz Feliz....Cumpleaños”.
+ Escribir la palabra Feliz tantas veces como queramos, solicitando el número por teclado. Utiliza el bucle while.-->
+ <!DOCTYPE html>
+ <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Feliz cumpleaños</title>
+    </head>
+    <body>
+        <h1>Feliz... Cumpleaños</h1>
+        <div id="resultado"></div>
+
+        <script> 
+        function escribirFelizCumpleanios () {
+            const tantasVeces = prompt("Introduce el número de veces que quieres que se escriba Feliz");
+            const veces = parseInt(tantasVeces);
+
+            if(isNaN(veces) || veces <= 0) {
+                alert("Por favor, introduce un número válido mayor de 0");
+                return;
+            }
+
+            let contador = 0;
+            let mensaje = "";
+
+            while(contador < veces) {
+                mensaje += "Feliz ";
+                contador++;
+            }
+
+            mensaje += " Cumpleaños";
+            document.getElementById('resultado').innerHTML = mensaje;
+        }
+
+        escribirFelizCumpleanios();
+
+        </script>
+    </body>
+ </html>

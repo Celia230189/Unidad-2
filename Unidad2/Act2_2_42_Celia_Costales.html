@@ -1,0 +1,38 @@
+<!--Hacer un programa que calcule el factorial de un número utilizando la sentencia for.-->
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Factorial de n</title>
+    </head>
+    <h1>Factorial de ...</h1>
+    <div id="resultado"></div>
+    
+    <script>
+            const num = parseInt(prompt("Introduzca el número del que desea calcular le factorial"));
+
+            function calcularFactorial(n) {
+                if(n < 0) {
+                    return "El factorial no está definido para números negativos";
+                }
+
+                if(n === 0 || n === 1) {
+                    return 1;
+                }
+
+                let factorial = 1;
+                for (let i = 1; i <= n; i++) {
+                    factorial *= i;
+                }
+
+                return factorial;
+ 
+            }
+
+            const resultado = calcularFactorial(num);
+
+            document.getElementById('resultado').innerHTML = ` 
+            El factorial de ${num} es ${resultado}`;
+
+    </script>
+</html>

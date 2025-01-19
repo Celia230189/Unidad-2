@@ -1,0 +1,30 @@
+<!--Evaluar una expresión mediante la función parseFloat,-->
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Evaluar expresión con parseFloat</title>
+    </head>
+    <body>
+        <h1>Evaluar expresión con parseFloat</h1>
+        <div id="resultado"></div>
+
+        <script>
+            const expresion = prompt("Introduce una expresió (por ejemplo, '5 + 3 * 2'):");
+
+            //Evaluar la expresión
+            const evaluacion = eval(expresion);
+
+            //Convertir el resultado a entero usando parseInt
+            const resultado = parseFloat(evaluacion);
+
+            document.getElementById('resultado').innerHTML = `
+            <p>La expresión introducida es: ${expresion}</p>
+            <p>El resultado de la evaluación es: ${evaluacion}</p>
+            <p>El resultado convertido a entero es: ${resultado}</p>
+            `;
+           
+         
+        </script>
+    </body>
+</html>

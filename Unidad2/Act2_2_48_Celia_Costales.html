@@ -1,0 +1,30 @@
+<!--Hacer un programa que calcule y visualice las potencias de 2 entre 0 y 10.-->
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Potencias de 2</title>
+    </head>
+    <body>
+        <h1>Potencias de 2 entre 0 y 10</h1>
+        <div id="resultado"></div>
+
+        <script>
+           function calcularPotencias() {
+            let potencias = [];
+
+            for(let i = 0; i <= 10; i++) {
+                potencias.push(Math.pow(2,i));
+            }
+
+            document.getElementById('resultado').innerHTML = `
+            <p>Potencias de 2 entre 0 y 10: ${potencias.join('-')}`;
+
+           }
+
+           calcularPotencias();
+  
+         
+        </script>
+    </body>
+</html>

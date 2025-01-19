@@ -1,0 +1,24 @@
+<!--Realiza un ejercicio que nos muestre los valores mínimo y máximo que puede alcanzar una variable del tipo number.-->
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Valores mínimo y máximo</title>
+    </head>
+    <body>
+        <h1>Valores mínimo y máximo de una variable Number</h1>
+        <div id="resultado"></div>
+
+        <script>
+            const valorMinimo = Number.MIN_VALUE;
+            const valorMaximo = Number.MAX_VALUE;
+
+            document.getElementById('resultado').innerHTML = `
+            <p>El valor mínimo de una variable del tipo Number es: ${valorMinimo}</p>
+            <p>El valor máximo de una variable del tipo Number es: ${valorMaximo}</p>
+            `;
+           
+         
+        </script>
+    </body>
+</html>

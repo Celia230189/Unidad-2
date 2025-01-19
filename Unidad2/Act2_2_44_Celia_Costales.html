@@ -1,0 +1,32 @@
+<!--Hacer un programa para calcular la suma de los 10 primeros números naturales utilizando la sentencia do .. while.-->
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>bucle while</title>
+    </head>
+    <body>
+        <h1>Suma de los 10 primeros números naturales</h1>
+        <div id="resultado"></div>
+
+        <script>
+            function suma() {
+                let contador = 1;
+                let suma = 0;
+
+                do {
+                    suma += contador;
+                    contador++;
+                } while (contador <= 10);
+
+
+                document.getElementById('resultado').innerHTML = `
+            La suma de los 10 primeros números naturales es: ${suma}
+            `;
+            }
+
+            suma();
+
+        </script>
+    </body>
+</html>

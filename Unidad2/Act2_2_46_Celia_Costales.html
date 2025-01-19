@@ -1,0 +1,33 @@
+<!--Hacer un programa que visualice y sume la serie de números 3, 6, 9, 12, ..., 99.-->
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Serie de números</title>
+    </head>
+    <body>
+        <h1>Serie de números</h1>
+        <div id="resultado"></div>
+
+        <script>
+            function numerosDe3en3() {
+                let numeros = [];
+                let suma = 0;
+
+                for(let i = 3; i <= 99; i+= 3) {
+                    numeros.push(i);
+                    suma += i;
+                }
+
+                document.getElementById('resultado').innerHTML = `
+                <p>${numeros.join('-')}</p>
+                <p>Suma: ${suma}</p>
+                `;
+
+            }
+
+            numerosDe3en3();
+
+        </script>
+    </body>
+</html>

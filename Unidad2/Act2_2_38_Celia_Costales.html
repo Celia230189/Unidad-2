@@ -1,0 +1,32 @@
+<!--Hacer un programa que escriba los números del 1 al 25 con un bucle for de 3 en 3 y escribiendo 4 números en cada línea.-->
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>For</title>
+    </head>
+    <body>
+        <h1>Números de 1 al 25</h1>
+        <div id="resultado"></div>
+        <script>
+            function escribirNumeros() {
+                let resultado = "";
+                let contador = 0;
+
+                for(let i=1; i <=25 ; i+= 3) {
+                    resultado += i + " ";
+                    contador++;
+
+                    if(contador === 4) {
+                        resultado += "<br>";
+                        contador = 0;
+                    }
+                }
+
+                document.getElementById('resultado').innerHTML = resultado;
+            }
+
+            escribirNumeros();
+        </script>
+    </body>
+</html>

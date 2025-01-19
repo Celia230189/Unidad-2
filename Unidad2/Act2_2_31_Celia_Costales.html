@@ -1,0 +1,33 @@
+<!--Calcular el volumen y el área de una esfera utilizando las fórmulas: V = 4π r3/3.... V = 4π r2....-->
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Calcular Volumen y Área de una esfera</title>
+    </head>
+    <body>
+        <h1>Calcular el Volumen y el Área de una esfera</h1>
+        <label for="radio">Radio:</label>
+        <input type="number" id="radio" name="radio" required>
+        <button onclick="calcular()">Calcular</button>
+        <p id="resultado"></p>
+
+        <script>
+            function calcular() {
+                const radio = parseFloat(document.getElementById('radio').value);
+                if(isNaN(radio) || radio <= 0) {
+                    alert("Par favor, introduce un valor mayor que 0");
+                    return;
+                }
+
+                const volumen = (4/3) * Math.PI * Math.pow(radio,3);
+                const area = 4 * Math.PI * Math.pow(radio,2);
+
+                document.getElementById('resultado').innerHTML = `
+                Volumen: ${volumen.toFixed(2)}<br>
+                Área: ${area.toFixed(2)}
+                `;
+            }
+        </script>
+    </body>
+</html>

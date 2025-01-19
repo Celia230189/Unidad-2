@@ -1,0 +1,37 @@
+<!--Escribir un programa para determinar si un número n es primo 
+(un número primo sólo es divisible por el mismo y por la unidad).-->
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Número primo</title>
+    </head>
+    <body>
+        <h1>Es primo...</h1>
+        <div id="resultado"></div>
+
+        <script>
+            function esPrimo(n) {
+                if(n <= 1) {
+                    return false; // los números menores o iguales a 1 no son primos
+                }
+
+                for(let i = 2; i <= Math.sqrt(n); i++) {
+                    if(n % i === 0) {
+                        return false; //si es divisible por algún número entre 2 y la raiz cuadrada de n, no es primo
+                    }
+                }
+                return true; //si no es divisible por ningún número en el rango anterior, es primo
+            }
+
+            const num = parseInt(prompt("Introduce un número para determinar si es primo"));
+
+            if(esPrimo(num)) {
+                document.getElementById('resultado').innerHTML = `El número ${num} es primo`;
+            } else {
+                document.getElementById('resultado').innerHTML = `El número ${num} no es primo`;
+            }
+
+        </script>
+    </body>
+</html>

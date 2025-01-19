@@ -1,0 +1,27 @@
+<!--Haz un programa que pida un número y nos de cómo resultado el mismo número en base 16.-->
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Conversión a Base 16</title>
+    </head>
+    <body>
+        <h1>Conversión a Base 16</h1>
+        <div id="resultado"></div>
+
+        <script>
+            const numero = parseInt(prompt("Introduce un número"));
+
+            function convertirBase16(n) {
+                return n.toString(16);
+            }
+
+            const resultado = convertirBase16(numero);
+
+            document.getElementById('resultado').innerHTML =`
+            <p>El número ${numero} es base 16 es: ${resultado}</p>`;
+  
+         
+        </script>
+    </body>
+</html>

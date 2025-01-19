@@ -1,0 +1,38 @@
+<!--Escribir un programa que pida por teclado cuánto costó una cena, y escriba por teclado lo siguiente:
+1. La propina más pequeña vale: propinapeq
+2. La propina más grande vale: propinagra
+3. Donde propinapeq es un 15% del valor de la cena
+4. Donde propinagra es un 25% del valor de la cena-->
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Propina</title>
+    </head>
+    <body>
+        <h1>Calcular propina</h1>
+        <label for="precio">Introduce el precio de la cena:</label>
+        <input type="number" id="precio" name="precio" required>
+        <button onclick="calcularPropina()">Propina</button>
+        <div id="resultado"></div>
+
+        <script>
+            function calcularPropina() {
+                const precio = parseFloat(document.getElementById('precio').value);
+                if(isNaN(precio) || precio <= 0) {
+                    alert("Por favor, introduce un precio mayor de 0");
+                    return;
+                }
+
+                const propoinapeq = precio * 15 / 100;
+                const propinagra = precio * 25 / 100;
+
+                const resultadoDiv = document.getElementById('resultado').innerHTML = `
+                <p>La propina más pequeña vale: ${propoinapeq}</p>
+                <p>La propina más grande vale: ${propinagra}</p>
+                `;
+
+            }
+        </script>
+    </body>
+</html>

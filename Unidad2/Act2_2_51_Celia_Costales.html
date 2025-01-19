@@ -1,0 +1,33 @@
+<!--Haz un programa que nos pida un número en base 8 y nos de cómo resultado el número en base decimal y en base 2.--><!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Conversión de Base 8 a Decimal y Binario</title>
+    </head>
+    <body>
+        <h1>Conversión de Base 8 a Decimal y Binario</h1>
+        <div id="resultado"></div>
+
+        <script>
+            const numOctal = prompt("Introduce un número en base 8");
+
+            function convertirBaseDecimal(n) {
+                return parseInt(n, 8);
+            }
+
+            function convertirBaseBinaria(n) {
+                return n.toString(2);
+            }
+
+            const numDecimal = convertirBaseDecimal(numOctal);
+            const numBinario = convertirBaseBinaria(numDecimal);
+
+            document.getElementById('resultado').innerHTML =`
+            <p>El número ${numOctal} en base decimal es: ${numDecimal}</p>
+            <p>El número ${numOctal} en base binaria es: ${numBinario}
+            `;
+  
+         
+        </script>
+    </body>
+</html>

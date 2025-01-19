@@ -1,0 +1,40 @@
+
+<!--Hacer un programa que solicite y visualice una serie de números distintos de cero. 
+El programa debe terminar cuando introduzcamos el valor cero que no se debe visualizar. 
+Finalmente se desea obtener la cantidad de valores leídos distintos de cero.-->
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Serie de números</title>
+    </head>
+    <body>
+        <h1>Serie de números distintos de cero</h1>
+        <div id="resultado"></div>
+
+        <script>
+            function solicitarNumeros() {
+                let contador = 0;
+                let numeros = [];
+                let numero;
+
+                do {
+                    numero = parseInt(prompt("Introduce un número (0 para terminar)"));
+                    if(numero !== 0) {
+                        numeros.push(numero);
+                        contador++;
+                    }
+                } while (numero !== 0);
+
+                document.getElementById('resultado').innerHTML = ` 
+                <p>Números introducidos: ${numeros.join('-')}</p>
+                <p>Cantidad de valores leídos distintos de cero: ${contador}</p>
+                `;
+
+            }
+
+            solicitarNumeros();
+
+        </script>
+    </body>
+</html>
